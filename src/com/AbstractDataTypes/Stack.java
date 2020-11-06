@@ -12,7 +12,7 @@ public class Stack extends LinkedList {
         return temp;
     }
 
-    public Object peak() {
+    public Object peek() {
         return get(size() - 1);
     }
 

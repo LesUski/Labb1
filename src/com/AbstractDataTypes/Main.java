@@ -33,17 +33,17 @@ public class Main {
         System.out.println("\nStack solution :\n" +
                 "=======================================================");
         Stack stack = new Stack();
-        stack.add(23);
-        stack.add(32);
-        stack.add(10);
+        stack.push(23);
+        stack.push(32);
+        stack.push(10);
         stack.push(20);
-        for (int i = 0; i < stack.size(); i++) {
-            System.out.println("Index nr: " + i + stack.get(i));
+        for (int i = stack.size() - 1; i >= 0; i--) {
+            System.out.println("Index nr: " + i + " : " + stack.get(i));
         }
         System.out.println("================");
         stack.pop();
-        for (int i = 0; i < stack.size(); i++) {
-            System.out.println("Index nr: " + i + stack.get(i));
+        for (int i = stack.size() - 1; i >= 0; i--) {
+            System.out.println("Index nr: " + i + " : " + stack.get(i));
         }
 
         System.out.println("\nQueue solution :\n" +

@@ -1,6 +1,7 @@
 package com.AbstractDataTypes;
 
 public class Queue extends LinkedList{
+
     public void enqueue (Object ob) {
         add(ob);
     }

@@ -44,7 +44,7 @@ class LinkedListTest {
         assertEquals(23, list.get(0));
         assertEquals(33, list.get(1));
         assertEquals(44, list.get(2));
-        assertEquals(null, list.get(3));
+        assertNull(list.get(3));
     }
 
     @Test
@@ -56,6 +56,9 @@ class LinkedListTest {
         assertEquals(3, list.size());
         list.remove(2);
         assertEquals(2, list.size());
+        list.remove(1);
+        list.remove(0);
+        assertEquals(0, list.size());
     }
 
     @Test

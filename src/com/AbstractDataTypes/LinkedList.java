@@ -1,6 +1,7 @@
 package com.AbstractDataTypes;
 
 public class LinkedList {
+
     Node head;
     private int counter;
 
@@ -8,23 +9,13 @@ public class LinkedList {
         Object data;
         Node next;
 
-
         public Node (Object value) {
             data = value;
             next = null;
         }
 
-        public Node (int value, Node nextValue) {
-            next = nextValue;
-            data = value;
-        }
-
         public Object get() {
             return data;
-        }
-
-        public void setData(Object value) {
-            data = value;
         }
 
         public Node getNext() {
@@ -41,22 +32,17 @@ public class LinkedList {
     }
 
     public void add(Object value) {
-
         if (head == null) {
             head = new Node(value);
         }
 
         Node temp = new Node(value);
         Node current = head;
-
-        if (current != null) {
-
-            while (current.getNext() != null) {
-                current = current.getNext();
-            }
-
-            current.setNext(temp);
+        while (current.getNext() != null) {
+            current = current.getNext();
         }
+
+        current.setNext(temp);
 
         counter++;
     }
@@ -68,12 +54,8 @@ public class LinkedList {
             head = new Node(data);
         }
         current = head;
-
-        if (current != null) {
-
-            for (int i = 0; i< index && current.getNext() != null; i++) {
-                current = current.getNext();
-            }
+        for (int i = 0; i < index && current.getNext() != null; i++) {
+            current = current.getNext();
         }
         temp.setNext(current.getNext());
 
@@ -86,29 +68,28 @@ public class LinkedList {
         if (index < 0) {
             return null;
         }
-        Node currrent = null;
+        Node current;
         if (head != null) {
-            currrent = head.getNext();
+            current = head.getNext();
             for (int i = 0; i < index; i++) {
-                if (currrent.getNext() == null) return null;
+                if (current.getNext() == null) return null;
 
-                currrent = currrent.getNext();
+                current = current.getNext();
             }
-            return currrent.get();
+            return current.get();
         }
-        return currrent;
+        return null;
     }
 
     public void remove(int index) {
-
         Node current = head;
         if (head != null) {
             for (int i = 0; i < index; i++) {
                 if (current.getNext() != null) current = current.getNext();
             }
+            assert current.getNext() != null;
             current.setNext(current.getNext().getNext());
             counter--;
-
         }
     }
 
@@ -123,8 +104,6 @@ public class LinkedList {
     }
 
     public boolean empty() {
-        if (head == null) {
-            return true;
-        } else return false;
+        return head == null;
     }
 }

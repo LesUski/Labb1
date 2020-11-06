@@ -30,7 +30,7 @@ class StackTest {
         Stack stack = new Stack();
         stack.push(20);
         stack.push(30);
-        assertEquals(30, stack.peak());
+        assertEquals(30, stack.peek());
 
     }
 }
